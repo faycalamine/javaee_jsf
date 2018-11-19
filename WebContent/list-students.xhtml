@@ -42,8 +42,8 @@
 				<h:column>
 					<f:facet name="header">Action</f:facet>
 					<h:form>
-					<h:commandButton value="Edit" action="add" />
-					<h:commandButton value="Delete" action="add" />
+					<h:commandButton value="Edit" action="edit-student" />
+					<h:commandButton value="Delete" action="#{studentManager.removeStudent(tempStudent)}" />
 					</h:form>
 					</h:column>
 

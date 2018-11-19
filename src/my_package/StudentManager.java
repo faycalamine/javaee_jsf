@@ -33,6 +33,14 @@ public void loadStudents() throws SQLException, NamingException
 	}
 	
 	*/
+	public void removeStudent(Student st)
+	{
+		StudentDbUtil.deleteStudent(st.getId());
+	}
+	public void modifyStudent(Student st)
+	{
+		StudentDbUtil.updateStudent(st);
+	}
 	public void addStudent(Student st)
 	{
 		StudentDbUtil.addStudent(st);
