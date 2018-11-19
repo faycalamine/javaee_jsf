@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:f= "http://xmlns.jcp.org/jsf/core"
+ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      
+<head>
+  <title><ui:insert name="title">Add a new Student</ui:insert></title>
+  <big><b>New Student<br /><br /></b></big>
+</head>
+
+<body>
+<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+
+<div id="header">
+    <ui:insert name="header">
+    <h:form>
+    ID
+  <h:inputText id="id" value="#{student.id}"/>
+    <br/>First Name
+  <h:inputText id="firstname" value="#{student.first_name}"/>
+  <br/>Last Name
+  <h:inputText id="lastname" value="#{student.last_name}"/>
+  <br/>Email
+  <h:inputText id="email" value="#{student.email}"/>
+   <h:commandButton value="Save" action="#{studentManager.addStudent(student)}"/>
+	     <h:commandButton value="Cancel" action="list-students"/>
+  </h:form>
+  
+    </ui:insert>
+</div>
+
+
+<div id="content">
+  <ui:insert name="content">
+    
+  </ui:insert>
+</div>
+
+<div id="footer">
+  <ui:insert name="footer">
+
+	     
+  </ui:insert>
+</div>
+
+</body>
+
+</html>

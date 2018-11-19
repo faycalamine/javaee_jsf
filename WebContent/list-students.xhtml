@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+<title><ui:insert name="title">Home</ui:insert></title>
+<big><b>List of Students<br />
+	<br /></b></big>
+</head>
+
+<body>
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+
+	<div id="header">
+		<f:metadata>
+			<f:event type="preRenderView"
+				listener="#{studentManager.loadStudents()}" />
+		</f:metadata>
+		<ui:insert name="header">
+			<h:dataTable border="1" value="#{studentManager.studiants}"
+				var="tempStudent">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+ #{tempStudent.id}
+ </h:column>
+				<h:column>
+					<f:facet name="header">First Name</f:facet>
+ #{tempStudent.first_name}
+ </h:column>
+				<h:column>
+					<f:facet name="header">Last Name</f:facet>
+ #{tempStudent.last_name}
+ </h:column>
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+ #{tempStudent.email}
+ </h:column>
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:form>
+					<h:commandButton value="Edit" action="add" />
+					<h:commandButton value="Delete" action="add" />
+					</h:form>
+					</h:column>
+
+	
+			</h:dataTable>
+			<h:form>
+			<h:column><h:commandButton value="Add new student" action="add-student" /></h:column>
+			</h:form>
+		</ui:insert>
+	</div>
+
+
+	<div id="content">
+		<ui:insert name="content">
+
+		</ui:insert>
+	</div>
+
+	<div id="footer">
+		<ui:insert name="footer">
+			
+		</ui:insert>
+	</div>
+
+</body>
+
+</html>
